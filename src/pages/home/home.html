@@ -7,8 +7,16 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <!--<ion-label>{{'Hello To Ionic 2'|translate:param}}</ion-label>-->
+  <!--<button (click)="change()">hi there</button>-->
+ <ion-list>
+    <ion-item-group radio-group (ionChange)="change()" [(ngModel)]="selectedLanguage">
+      <ion-item-divider color="light">Languages</ion-item-divider>
+      <ion-item *ngFor="let lang of languages">
+        <ion-label>{{lang.name}}</ion-label>
+        <ion-radio [value]="lang.code"></ion-radio>
+      </ion-item>
+    </ion-item-group>
+   <p>{{'Hello To Ionic 2'|translate}}</p>
+  </ion-list>
 </ion-content>
